@@ -12,7 +12,7 @@ def index():
 def upload_pdf():
     file = request.files['file']
     file.save(os.path.join("uploads", file.filename))
-    return f"업로드 완료: {file.filename}"
+    return f'업로드 완료: {file.filename}'
 
 if __name__ == '__main__':
     app.run(debug=True)
