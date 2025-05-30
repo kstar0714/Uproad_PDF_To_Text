@@ -38,9 +38,12 @@ def download_text(filename):
 def extract_text_from_pdf(pdf_path):
     text = ""
     doc = fitz.open(pdf_path)
-    for page in doc:
-        text += page.get_text()
+    for page_num, page in enumerate(doc):
+        page_text = page.get_text().strip()
+        text += f"\n--- Page {page_num + 1} ---\n"
+        text += page_text if page_text else "[비어 있음]\n"
     return text
+
 
 if __name__ == '__main__':
     app.run(debug=True)
