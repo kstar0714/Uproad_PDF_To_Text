@@ -6,10 +6,8 @@
 </head>
 <body>
     <h2>{{ filename }}의 텍스트 추출 결과</h2>
-
     <pre>{{ extracted_text }}</pre>
-
-    <br><br>
+    <br>
     <a href="{{ url_for('download_text', filename=text_file) }}">📥 텍스트 파일 다운로드</a><br>
     <a href="/">돌아가기</a>
 </body>

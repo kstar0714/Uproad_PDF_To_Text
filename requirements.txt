@@ -1,3 +1,4 @@
 Flask
-gunicorn
-PyMuPDF
+requests
+pdf2image
+Pillow
