@@ -73,6 +73,10 @@ def extract_text_via_clova(pdf_path):
         )
 
         result = res.json()
+        if 'images' not in result:
+            print("OCR API 응답 오류:", result)
+            return "[CLOVA OCR API 호출 실패 또는 인증 오류]"
+
         for field in result['images'][0].get('fields', []):
             full_text += field['inferText'] + '\n'
 
