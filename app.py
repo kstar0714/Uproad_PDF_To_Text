@@ -72,12 +72,17 @@ def extract_text_via_clova(pdf_path):
             json=payload
         )
 
-        result = res.json()
-        if 'images' not in result:
-            print("OCR API 응답 오류:", result)
-            return "[CLOVA OCR API 호출 실패 또는 인증 오류]"
+        print("📦 OCR 응답 상태코드:", res.status_code)
 
-        for field in result['images'][0].get('fields', []):
-            full_text += field['inferText'] + '\n'
+        try:
+            result = res.json()
+            print("📜 OCR 응답 본문:", result)
+        except Exception as e:
+            print("❌ JSON 파싱 실패:", e)
+            return "[OCR 응답 JSON 파싱 오류]"
+
+# 오류 응답일 경우 즉시 반환
+if 'images' not in result:
+    return f"[OCR 실패] CLOVA 응답 오류:\n{result}"
 
     return full_text
