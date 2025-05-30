@@ -2,3 +2,4 @@ Flask
 requests
 pdf2image
 Pillow
+gunicorn
