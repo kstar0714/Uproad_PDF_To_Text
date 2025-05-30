@@ -67,7 +67,7 @@ def extract_text_via_clova(pdf_path):
         }
 
         res = requests.post(
-            "http://clovaocr-api-kr.ncloud.com/external/v1/42531/f410ff7be7e71427f17d4e592c5b6c85f805fe333b409f969fba2b367d0dfe8b",
+            "https://clovaocr-api-kr.ncloud.com/external/v1/42531/f410ff7be7e71427f17d4e592c5b6c85f805fe333b409f969fba2b367d0dfe8b",
             headers=headers,
             json=payload
         )
