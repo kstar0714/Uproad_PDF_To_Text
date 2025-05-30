@@ -56,7 +56,7 @@ def extract_text_via_clova(pdf_path):
         }
 
         payload = {
-            "version": "V2",
+            "version": "v1",
             "requestId": "ocr-request",
             "timestamp": 0,
             "images": [{
